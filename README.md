@@ -6,7 +6,7 @@
 
 We introduce a boundary-embedded neural operator that incorporates complex boundary shape and inhomogeneous boundary values into the solving of Elliptic PDEs.
 
-# Installation
+## Installation
 
 1. First clone the directory.
 
@@ -30,11 +30,11 @@ pip install loguru
 
 
 
-# Dataset
+## Dataset
 
 The dataset files 10 4-Corners examples are under "data/". 
 
-# Training
+## Training
 
 Below we provide example commands for training BENO. 
 
@@ -45,7 +45,7 @@ python train.py --dataset_type=32x32 --epochs 1000
 ```
 
 
-# Analysis
+## Analysis
 
 To analyze the results, use the following commands:
 
@@ -53,4 +53,16 @@ To analyze the results, use the following commands:
 python analysis.py 
 ```
 
+## Citation
+If you find our work and/or our code useful, please cite us via:
+
+```bibtex
+@inproceedings{wang2024beno,
+title={{BENO}: Boundary-embedded Neural Operators for Elliptic {PDE}s},
+author={Wang, Haixin and Jiaxin, LI and Dwivedi, Anubhav and Hara, Kentaro and Wu, Tailin},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=ZZTkLDRmkg}
+}
+```
 
