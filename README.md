@@ -1,6 +1,6 @@
 # BENO: Boundary-embedded Neural Operators for Elliptic PDEs (ICLR 2024)
 
-[Paper](https://openreview.net/forum?id=ZZTkLDRmkg) | [Tweet](https://twitter.com/tailin_wu/status/1747259448635367756)
+[Paper](https://openreview.net/forum?id=ZZTkLDRmkg) | [Arxiv](https://arxiv.org/abs/2401.09323) | [Tweet](https://twitter.com/tailin_wu/status/1747259448635367756)
 
 [Haixin Wang*](https://willdreamer.github.io/), [Jiaxin Li*](https://github.com/Jiaxinlia/Jiaxin.github.io), [Anubhav Dwivedi](https://dwivedi-anubhav.github.io/website/), [Kentaro Hara](https://aa.stanford.edu/people/ken-hara), [Tailin Wu](https://tailin.org/)
 
