@@ -4,7 +4,13 @@
 
 [Haixin Wang*](https://willdreamer.github.io/), [Jiaxin Li*](https://github.com/Jiaxinlia/Jiaxin.github.io), [Anubhav Dwivedi](https://dwivedi-anubhav.github.io/website/), [Kentaro Hara](https://aa.stanford.edu/people/ken-hara), [Tailin Wu](https://tailin.org/)
 
-We introduce a boundary-embedded neural operator that incorporates complex boundary shape and inhomogeneous boundary values into the solving of Elliptic PDEs.
+We introduce a boundary-embedded neural operator that incorporates **complex boundary shape** and **inhomogeneous boundary values** shown below into the solving of Elliptic PDEs:
+
+<a href="url"><img src="https://github.com/AI4Science-WestlakeU/beno/blob/main/assets/motivation.png" align="center" width="700" ></a>
+
+The whole architecture of our BENO:
+
+<a href="url"><img src="https://github.com/AI4Science-WestlakeU/beno/blob/main/assets/arch.png" align="center" width="700" ></a>
 
 ## Installation
 
@@ -32,7 +38,7 @@ pip install loguru
 
 ## Dataset
 
-The dataset files 10 4-Corners examples are under "data/". 
+The sample dataset files 10 4-Corners examples are under "data/". And the full dataset files can be downloaded via [this link]()
 
 ## Training
 
