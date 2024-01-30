@@ -34,11 +34,10 @@ pip install torch-cluster==1.5.9 -f https://data.pyg.org/whl/torch-1.10.2+cu113.
 pip install loguru
 ```
 
-
-
 ## Dataset
 
 The sample dataset files 10 4-Corners examples are under "data/". And the full dataset files can be downloaded via [this link](https://drive.google.com/file/d/11PbUrzJ-b18VhFGY_uICSciCkeGrsaTZ/view). To run experiments on specific boundary types, download the files in the link into the "data/" folder in the local repo. **BC_Nxx_xc_all.npy**/**RHS_Nxx_xc_all.npy**/**SOL_Nxx_xc_all.npy** represents **boundary information**/**forcing term**/**solution** of the specific resolution and shapes.
+
 
 ## Training
 
@@ -58,6 +57,13 @@ To analyze the results, use the following commands:
 ```code
 python analysis.py 
 ```
+
+## Related Projects:
+
+* [CinDM](https://github.com/AI4Science-WestlakeU/cindm) (ICLR 2024 spotlight): We introduce a method that uses compositional generative models to design boundaries and initial states significantly more complex than the ones seen in training for physical simulations.
+
+* [LAMP](https://github.com/snap-stanford/lamp) (ICLR 2023 spotlight): first fully DL-based surrogate model that jointly optimizes spatial resolutions to reduce computational cost and learns the evolution model, learned via reinforcement learning.
+
 
 ## Citation
 If you find our work and/or our code useful, please cite us via:
