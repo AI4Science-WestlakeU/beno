@@ -45,32 +45,33 @@ class Encoder(nn.Module):
           nedge_in_features: int,
           nedge_out_features: int,
           nmlp_layers: int,
-          mlp_hidden_dim: int,):
+          mlp_hidden_dim: int,
+          activation:nn.Module,):
  
     super(Encoder, self).__init__()
     # Encode node features as an MLP
     self.node_fn = nn.Sequential(*[build_mlp(nnode_in_features,
                                              [mlp_hidden_dim
                                               for _ in range(nmlp_layers)],
-                                             nnode_out_features),
+                                             nnode_out_features,activation=activation),
                                    nn.LayerNorm(nnode_out_features)])
     # Encode edge features as an MLP
     self.edge_fn = nn.Sequential(*[build_mlp(nedge_in_features,
                                              [mlp_hidden_dim
                                               for _ in range(nmlp_layers)],
-                                             nedge_out_features),
+                                             nedge_out_features,activation=activation),
                                    nn.LayerNorm(nedge_out_features)])
     
     self.node_fn_inbd = nn.Sequential(*[build_mlp(nnode_in_features,
                                              [mlp_hidden_dim
                                               for _ in range(nmlp_layers)],
-                                             nnode_out_features),
+                                             nnode_out_features,activation=activation),
                                    nn.LayerNorm(nnode_out_features)])
     
     self.edge_fn_inbd = nn.Sequential(*[build_mlp(nedge_in_features,
                                              [mlp_hidden_dim
                                               for _ in range(nmlp_layers)],
-                                             nedge_out_features),
+                                             nedge_out_features,activation=activation),
                                    nn.LayerNorm(nedge_out_features)])
 
   def forward(
@@ -177,7 +178,8 @@ class Processor(MessagePassing):
       nmlp_layers: int,
       mlp_hidden_dim: int,
       boundary_dim: int,
-      trans_layer:int
+      trans_layer:int,
+      activation:nn.Module
   ):
 
     super(Processor, self).__init__(aggr='mean')
@@ -191,7 +193,8 @@ class Processor(MessagePassing):
             nmlp_layers=nmlp_layers,
             mlp_hidden_dim=mlp_hidden_dim,
             boundary_dim=boundary_dim,
-            trans_layer=trans_layer
+            trans_layer=trans_layer,
+            activation=activation
         ) for _ in range(nmessage_passing_steps)])
     
     self.gnn_stacks_inbd = nn.ModuleList([
@@ -203,7 +206,8 @@ class Processor(MessagePassing):
             nmlp_layers=nmlp_layers,
             mlp_hidden_dim=mlp_hidden_dim,
             boundary_dim=boundary_dim,
-            trans_layer=trans_layer
+            trans_layer=trans_layer,
+            activation=activation,
         ) for _ in range(nmessage_passing_steps)])
 
 
@@ -233,13 +237,14 @@ class Decoder(nn.Module):
           nnode_in: int,
           nnode_out: int,
           nmlp_layers: int,
-          mlp_hidden_dim: int):
+          mlp_hidden_dim: int,
+          activation:nn.Module):
 
     super(Decoder, self).__init__()
     self.node_fn = build_mlp(
-        nnode_in, [mlp_hidden_dim for _ in range(nmlp_layers)], nnode_out)
+        nnode_in, [mlp_hidden_dim for _ in range(nmlp_layers)], nnode_out,activation=activation)
     self.node_fn_inbd = build_mlp(
-        nnode_in, [mlp_hidden_dim for _ in range(nmlp_layers)], nnode_out)
+        nnode_in, [mlp_hidden_dim for _ in range(nmlp_layers)], nnode_out,activation=activation)
 
   def forward(self,
               x: torch.tensor,
@@ -249,7 +254,6 @@ class Decoder(nn.Module):
     u=u1+u2
 
     return u
-
 
 class HeteroGNS(nn.Module):
   def __init__(
@@ -274,6 +278,7 @@ class HeteroGNS(nn.Module):
         nedge_out_features=latent_dim,
         nmlp_layers=nmlp_layers,
         mlp_hidden_dim=mlp_hidden_dim,
+        activation=activation,
 
         
     )
@@ -287,12 +292,14 @@ class HeteroGNS(nn.Module):
         mlp_hidden_dim=mlp_hidden_dim,
         boundary_dim = boundary_dim,
         trans_layer = trans_layer,
+        activation=activation,
     )
     self._decoder = Decoder(
         nnode_in=latent_dim,
         nnode_out=nnode_out_features,
         nmlp_layers=nmlp_layers,
         mlp_hidden_dim=mlp_hidden_dim,
+        activation=activation,
         
     )
 
