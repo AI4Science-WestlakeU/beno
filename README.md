@@ -1,6 +1,6 @@
 # BENO: Boundary-embedded Neural Operators for Elliptic PDEs (ICLR 2024)
 
-[Paper](https://openreview.net/forum?id=ZZTkLDRmkg) | [arXiv](https://arxiv.org/abs/2401.09323) | [Tweet](https://twitter.com/tailin_wu/status/1747259448635367756)
+[Paper](https://openreview.net/forum?id=ZZTkLDRmkg) | [arXiv](https://arxiv.org/abs/2401.09323) | [X](https://twitter.com/tailin_wu/status/1747259448635367756)
 
 [Haixin Wang*](https://willdreamer.github.io/), [Jiaxin Li*](https://github.com/Jiaxinlia/Jiaxin.github.io), [Anubhav Dwivedi](https://dwivedi-anubhav.github.io/website/), [Kentaro Hara](https://aa.stanford.edu/people/ken-hara), [Tailin Wu](https://tailin.org/)
 
@@ -70,11 +70,11 @@ If you find our work and/or our code useful, please cite us via:
 
 ```bibtex
 @inproceedings{wang2024beno,
-title={{BENO}: Boundary-embedded Neural Operators for Elliptic {PDE}s},
-author={Wang, Haixin and Jiaxin, LI and Dwivedi, Anubhav and Hara, Kentaro and Wu, Tailin},
-booktitle={The Twelfth International Conference on Learning Representations},
-year={2024},
-url={https://openreview.net/forum?id=ZZTkLDRmkg}
+  title={{BENO}: Boundary-embedded Neural Operators for Elliptic {PDE}s},
+  author={Wang, Haixin and Jiaxin, LI and Dwivedi, Anubhav and Hara, Kentaro and Wu, Tailin},
+  booktitle={The Twelfth International Conference on Learning Representations},
+  year={2024},
+  url={https://openreview.net/forum?id=ZZTkLDRmkg}
 }
 ```
 
